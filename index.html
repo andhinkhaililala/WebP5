@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Aero Food - Menyajikan Makanan Berkualitas untuk Penerbangan Anda
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#E53E3E", secondary: "#F9FAFB" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Poppins', sans-serif;
+      }
+      .logo {
+      font-family: 'Pacifico', serif;
+      }
+      .gradient-bg {
+      background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%);
+      }
+      .timeline-dot::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #E53E3E;
+      }
+      .timeline-line::before {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 24px;
+      width: 2px;
+      height: calc(100% - 24px);
+      background-color: #E5E7EB;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .custom-checkbox {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      user-select: none;
+      }
+      .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      }
+      .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #fff;
+      border: 2px solid #E5E7EB;
+      border-radius: 4px;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+      border-color: #E53E3E;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+      background-color: #E53E3E;
+      border-color: #E53E3E;
+      }
+      .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+      }
+      .custom-checkbox .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      }
+      .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #E5E7EB;
+      transition: .4s;
+      border-radius: 24px;
+      }
+      .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      }
+      input:checked + .slider {
+      background-color: #E53E3E;
+      }
+      input:checked + .slider:before {
+      transform: translateX(24px);
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <a href="#" class="logo text-3xl font-bold text-primary">Aero Food</a>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Tentang Kami</a
+          >
+          <a
+            href="#visi-misi"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Visi & Misi</a
+          >
+          <a
+            href="#sejarah"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Sejarah</a
+          >
+          <a
+            href="#layanan"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Layanan</a
+          >
+          <a
+            href="#kontak"
+            class="text-gray-700 hover:text-primary font-medium transition-colors"
+            >Kontak</a
+          >
+          <button
+            class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+          >
+            Hubungi Kami
+          </button>
+        </nav>
+        <div class="md:hidden w-10 h-10 flex items-center justify-center">
+          <button
+            class="text-gray-700 focus:outline-none"
+            id="mobile-menu-button"
+          >
+            <i class="ri-menu-line text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="md:hidden hidden bg-white w-full absolute top-full left-0 shadow-md"
+        id="mobile-menu"
+      >
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Tentang Kami</a
+          >
+          <a
+            href="#visi-misi"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Visi & Misi</a
+          >
+          <a
+            href="#sejarah"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Sejarah</a
+          >
+          <a
+            href="#layanan"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Layanan</a
+          >
+          <a
+            href="#kontak"
+            class="text-gray-700 hover:text-primary font-medium transition-colors py-2"
+            >Kontak</a
+          >
+          <button
+            class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap w-full"
+          >
+            Hubungi Kami
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="w-full h-screen relative mt-16" id="hero-section">
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div
+        class="container mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-between relative z-10"
+      >
+        <div class="max-w-2xl mb-8 md:mb-0">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
+          >
+            Menyajikan Makanan Berkualitas untuk Penerbangan Anda
+          </h1>
+          <p class="text-xl text-white mb-8">
+            Kami berkomitmen untuk memberikan pengalaman kuliner terbaik di
+            ketinggian dengan standar kualitas dan keamanan tertinggi.
+          </p>
+          <div class="flex flex-wrap gap-4 mb-8">
+            <button
+              class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+            <button
+              class="bg-white text-primary px-6 py-3 rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+            >
+              Hubungi Kami
+            </button>
+          </div>
+          <div class="bg-white/90 p-6 rounded-lg backdrop-blur-sm">
+            <h3 class="text-gray-900 font-semibold mb-4">Ubah Gambar Latar</h3>
+            <div class="flex gap-4">
+              <input
+                type="file"
+                id="bg-upload"
+                accept="image/*"
+                class="hidden"
+              />
+              <label
+                for="bg-upload"
+                class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors cursor-pointer whitespace-nowrap flex items-center"
+              >
+                <i class="ri-upload-2-line mr-2"></i>
+                Pilih Gambar
+              </label>
+              <button
+                id="reset-bg"
+                class="bg-gray-200 text-gray-700 px-4 py-2 rounded-button font-medium hover:bg-gray-300 transition-colors whitespace-nowrap flex items-center"
+              >
+                <i class="ri-refresh-line mr-2"></i>
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      #hero-section {
+      background-image: url('https://readdy.ai/api/search-image?query=Professional%20airline%20catering%20service%20with%20high-quality%20food%20preparation%2C%20elegant%20plating%20of%20gourmet%20meals%20for%20first-class%20passengers%2C%20staff%20in%20clean%20uniforms%2C%20modern%20kitchen%20facility%20with%20stainless%20steel%20equipment%2C%20bright%20and%20clean%20environment%2C%20red%20and%20white%20color%20scheme&width=1920&height=1080&seq=hero1&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+    </style>
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Tentang Kami
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <img
+              src="banner-history-1.jpg"
+              alt="Tim Aero Food"
+              class="w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+              Komitmen Kami untuk Kualitas
+            </h3>
+            <p class="text-gray-700 mb-6">
+              Sejak 1985, Aero Food telah menjadi pionir dalam industri katering
+              penerbangan di Indonesia. Kami mengkhususkan diri dalam
+              menyediakan makanan berkualitas tinggi untuk maskapai domestik dan
+              internasional dengan standar keamanan dan kebersihan yang ketat.
+            </p>
+            <p class="text-gray-700 mb-6">
+              Tim kami terdiri dari koki profesional berpengalaman dan staf yang
+              terlatih untuk memastikan setiap hidangan memenuhi standar
+              kualitas tertinggi. Kami menggunakan bahan-bahan segar dan
+              berkualitas premium untuk menciptakan menu yang lezat dan memenuhi
+              kebutuhan gizi penumpang.
+            </p>
+            <p class="text-gray-700 mb-8">
+              Fasilitas produksi kami dilengkapi dengan teknologi modern dan
+              mematuhi standar keamanan pangan internasional, memastikan bahwa
+              setiap hidangan yang kami sajikan aman dan berkualitas tinggi.
+            </p>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                >
+                  <i class="ri-award-line text-primary text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                    Bersertifikat ISO
+                  </h4>
+                  <p class="text-gray-600">
+                    Standar keamanan pangan internasional
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                >
+                  <i class="ri-user-star-line text-primary text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                    Tim Ahli
+                  </h4>
+                  <p class="text-gray-600">Koki profesional berpengalaman</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                >
+                  <i class="ri-restaurant-line text-primary text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                    Bahan Premium
+                  </h4>
+                  <p class="text-gray-600">Seleksi bahan berkualitas tinggi</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                >
+                  <i
+                    class="ri-customer-service-2-line text-primary text-2xl"
+                  ></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                    Layanan 24/7
+                  </h4>
+                  <p class="text-gray-600">
+                    Dukungan pelanggan sepanjang waktu
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Vision & Mission Section -->
+    <section id="visi-misi" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Visi & Misi
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-6"
+            >
+              <i class="ri-eye-line text-primary text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Visi Kami</h3>
+            <p class="text-gray-700 mb-6">
+              "Menjadi pemimpin dalam menyediakan makanan berkualitas tinggi
+              untuk penerbangan di seluruh dunia, dengan standar keamanan dan
+              kualitas yang tak tertandingi."
+            </p>
+            <p class="text-gray-700">
+              Kami bertujuan untuk menjadi mitra terpercaya bagi maskapai
+              penerbangan global, dikenal karena inovasi kuliner, keunggulan
+              operasional, dan komitmen terhadap kepuasan pelanggan.
+            </p>
+          </div>
+          <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-md">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-full mb-6"
+            >
+              <i class="ri-flag-line text-primary text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Misi Kami</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-0.5 flex-shrink-0"
+                >
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <p class="text-gray-700">
+                  Menyediakan makanan berkualitas tinggi yang memenuhi standar
+                  keamanan pangan internasional.
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-0.5 flex-shrink-0"
+                >
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <p class="text-gray-700">
+                  Mengembangkan menu inovatif yang mencerminkan keragaman budaya
+                  dan preferensi kuliner global.
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-0.5 flex-shrink-0"
+                >
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <p class="text-gray-700">
+                  Berinvestasi dalam teknologi dan pelatihan untuk meningkatkan
+                  efisiensi dan kualitas produk.
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-0.5 flex-shrink-0"
+                >
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <p class="text-gray-700">
+                  Menjalin kemitraan jangka panjang dengan maskapai penerbangan
+                  berdasarkan kepercayaan dan keandalan.
+                </p>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-0.5 flex-shrink-0"
+                >
+                  <i class="ri-check-line text-white text-sm"></i>
+                </div>
+                <p class="text-gray-700">
+                  Mempraktikkan keberlanjutan dalam operasi kami untuk
+                  meminimalkan dampak lingkungan.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- History Section -->
+    <section id="sejarah" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Sejarah Kami
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-700 max-w-3xl mx-auto">
+            Perjalanan kami dalam menyediakan layanan katering penerbangan
+            berkualitas tinggi selama lebih dari tiga dekade.
+          </p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <div class="relative pl-12 md:pl-16 pb-10 timeline-line">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2002 - Awal Layanan Catering
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Memulai layanan catering industri untuk rumah sakit, tambang, dll
+              </p>
+            </div>
+          </div>
+          <div class="relative pl-12 md:pl-16 pb-10 timeline-line">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2008 - Bisnis Ritel
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Masuk ke bisnis ritel F&B dan merchandise
+              </p>
+            </div>
+          </div>
+          <div class="relative pl-12 md:pl-16 pb-10 timeline-line">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2010 - Berinovasi
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Tambahkan layanan laundry industri
+              </p>
+            </div>
+          </div>
+          <div class="relative pl-12 md:pl-16 pb-10 timeline-line">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2011 - Perubahan Nama
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Ganti nama menjadi PT Aerofood Indonesia 
+              </p>
+            </div>
+          </div>
+          <div class="relative pl-12 md:pl-16 pb-10 timeline-line">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2019 - Meluncurkan Brand Baru
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Luncurkan brand laundry B2C 80 Degrees Laundry & Dry Clean
+              </p>
+            </div>
+          </div>
+          <div class="relative pl-12 md:pl-16">
+            <div class="timeline-dot relative">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                2023 - Inovasi Berkelanjutan
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Meluncurkan inisiatif keberlanjutan dan menu ramah lingkungan,
+                mengurangi limbah plastik sekali pakai sebesar 75% dan
+                menggunakan bahan-bahan lokal berkelanjutan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Layanan Kami
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-700 max-w-3xl mx-auto">
+            Kami menyediakan berbagai layanan katering berkualitas tinggi untuk
+            memenuhi kebutuhan maskapai penerbangan dan penumpang mereka.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=High-quality%20airline%20meals%20elegantly%20plated%20on%20airline%20trays%2C%20variety%20of%20international%20cuisine%20options%2C%20fresh%20ingredients%2C%20professional%20presentation%2C%20first-class%20airline%20food%20with%20garnishes%2C%20red%20and%20white%20color%20accents%20in%20the%20presentation&width=400&height=250&seq=service1&orientation=landscape"
+              alt="Katering Penerbangan Domestik"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-plane-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Katering Penerbangan Domestik
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Menyediakan makanan berkualitas tinggi untuk penerbangan
+                domestik dengan menu yang mencerminkan cita rasa lokal
+                Indonesia.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Menu rotasi 30 hari</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Opsi makanan tradisional</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Pengiriman tepat waktu</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=International%20gourmet%20airline%20meals%20with%20diverse%20cultural%20influences%2C%20elegant%20plating%20on%20premium%20airline%20dinnerware%2C%20variety%20of%20international%20cuisines%20including%20Asian%2C%20European%2C%20and%20Middle%20Eastern%20dishes%2C%20professional%20presentation%20with%20red%20and%20white%20color%20accents&width=400&height=250&seq=service2&orientation=landscape"
+              alt="Katering Penerbangan Internasional"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-earth-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Katering Penerbangan Internasional
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Menu internasional yang dirancang untuk memenuhi preferensi
+                kuliner global dengan standar kualitas tertinggi.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Pilihan menu multi-budaya</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Hidangan kelas bisnis & first class</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Konsultasi menu kustom</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Special%20dietary%20meals%20for%20airlines%20including%20vegetarian%2C%20vegan%2C%20gluten-free%2C%20halal%2C%20and%20kosher%20options%2C%20carefully%20labeled%20and%20packaged%2C%20fresh%20ingredients%2C%20health-focused%20presentation%2C%20variety%20of%20special%20meals%20with%20clear%20allergen%20information%2C%20red%20and%20white%20color%20theme%20in%20presentation&width=400&height=250&seq=service3&orientation=landscape"
+              alt="Makanan Khusus"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-heart-pulse-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Makanan Khusus
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Menyediakan makanan khusus untuk kebutuhan diet dan preferensi
+                religius, termasuk vegetarian, vegan, halal, dan bebas gluten.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>10+ opsi diet khusus</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Sertifikasi halal & kosher</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Penanganan alergen ketat</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Professional%20airline%20food%20packaging%20process%2C%20staff%20in%20red%20and%20white%20uniforms%20packaging%20meals%20in%20sealed%20airline%20trays%2C%20modern%20packaging%20facility%20with%20high%20hygiene%20standards%2C%20quality%20control%20inspection%2C%20efficient%20assembly%20line%20for%20airline%20meal%20preparation&width=400&height=250&seq=service4&orientation=landscape"
+              alt="Pengemasan & Logistik"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-box-3-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Pengemasan & Logistik
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Solusi pengemasan yang aman dan efisien dengan layanan logistik
+                tepat waktu untuk memastikan pengiriman makanan segar ke
+                pesawat.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Pengemasan ramah lingkungan</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Rantai dingin terjaga</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Pengiriman 24/7</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Professional%20chefs%20in%20red%20and%20white%20uniforms%20developing%20new%20airline%20menu%20items%2C%20food%20testing%20and%20tasting%20session%2C%20culinary%20innovation%20lab%20with%20modern%20equipment%2C%20chefs%20plating%20and%20evaluating%20new%20dishes%2C%20creative%20airline%20meal%20development%20process&width=400&height=250&seq=service5&orientation=landscape"
+              alt="Pengembangan Menu"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-restaurant-2-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Pengembangan Menu
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Layanan konsultasi dan pengembangan menu kustom untuk maskapai
+                penerbangan, menciptakan pengalaman kuliner unik.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Kolaborasi dengan chef selebriti</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Uji rasa profesional</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Analisis tren kuliner</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
+          >
+            <img
+              src="https://readdy.ai/api/search-image?query=Quality%20control%20inspection%20of%20airline%20meals%2C%20staff%20in%20red%20and%20white%20uniforms%20with%20clipboards%20checking%20food%20quality%2C%20temperature%20monitoring%2C%20safety%20inspection%2C%20detailed%20examination%20of%20prepared%20meals%2C%20bright%20clean%20facility%20with%20strict%20hygiene%20protocols&width=400&height=250&seq=service6&orientation=landscape"
+              alt="Kontrol Kualitas"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mb-4"
+              >
+                <i class="ri-shield-check-line text-primary text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Kontrol Kualitas
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Sistem kontrol kualitas ketat dengan inspeksi reguler dan
+                pemantauan keamanan pangan untuk memastikan standar tertinggi.
+              </p>
+              <ul class="space-y-2 mb-6">
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Laboratorium pengujian in-house</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Audit keamanan pangan rutin</span>
+                </li>
+                <li class="flex items-center text-gray-600">
+                  <i class="ri-check-line text-primary mr-2"></i>
+                  <span>Pelatihan staf berkelanjutan</span>
+                </li>
+              </ul>
+              <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Pelajari Lebih Lanjut
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="kontak" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Kontak Kami
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-gray-700 max-w-3xl mx-auto">
+            Hubungi kami untuk informasi lebih lanjut tentang layanan kami atau
+            untuk memulai kerjasama dengan tim kami.
+          </p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-12">
+          <div class="lg:w-1/2">
+            <form class="bg-white p-8 rounded-lg shadow-md">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Masukkan nama lengkap Anda"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Masukkan alamat email Anda"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="phone" class="block text-gray-700 font-medium mb-2"
+                  >Nomor Telepon</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Masukkan nomor telepon Anda"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subjek</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Masukkan subjek pesan Anda"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Pesan</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Tulis pesan Anda di sini..."
+                ></textarea>
+              </div>
+              <div class="mb-6">
+                <label class="custom-checkbox">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span>
+                  <span class="text-gray-700"
+                    >Saya menyetujui kebijakan privasi dan syarat &
+                    ketentuan</span
+                  >
+                </label>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-red-600 transition-colors whitespace-nowrap"
+              >
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+          <div class="lg:w-1/2">
+            <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+              <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                Informasi Kontak
+              </h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                  >
+                    <i class="ri-map-pin-line text-primary text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                      Alamat Kantor Pusat
+                    </h4>
+                    <p class="text-gray-700">
+                      Jl. Bandara Internasional Soekarno-Hatta No. 88, Tangerang
+                      15126, Indonesia
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                  >
+                    <i class="ri-phone-line text-primary text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                      Telepon
+                    </h4>
+                    <p class="text-gray-700">+62 21 5501 2345</p>
+                    <p class="text-gray-700">+62 812 8888 7777 (WhatsApp)</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                  >
+                    <i class="ri-mail-line text-primary text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                      Email
+                    </h4>
+                    <p class="text-gray-700">info@aerofood.co.id</p>
+                    <p class="text-gray-700">sales@aerofood.co.id</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-red-100 rounded-full mr-4"
+                  >
+                    <i class="ri-time-line text-primary text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-semibold text-gray-900 mb-1">
+                      Jam Operasional
+                    </h4>
+                    <p class="text-gray-700">
+                      Senin - Jumat: 08.00 - 17.00 WIB
+                    </p>
+                    <p class="text-gray-700">Sabtu: 09.00 - 14.00 WIB</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <h4 class="text-lg font-semibold text-gray-900 mb-4">
+                  Ikuti Kami
+                </h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i
+                      class="ri-facebook-fill text-primary hover:text-white text-xl"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i
+                      class="ri-instagram-line text-primary hover:text-white text-xl"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i
+                      class="ri-twitter-x-line text-primary hover:text-white text-xl"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i
+                      class="ri-linkedin-fill text-primary hover:text-white text-xl"
+                    ></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-10 h-10 flex items-center justify-center bg-red-100 rounded-full hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <i
+                      class="ri-youtube-line text-primary hover:text-white text-xl"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white p-8 rounded-lg shadow-md h-64 relative overflow-hidden"
+            >
+              <div
+                style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;"
+                class="absolute inset-0"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div>
+            <a
+              href="#"
+              class="logo text-3xl font-bold text-white mb-4 inline-block"
+              >Aero Food</a
+            >
+            <p class="text-gray-400 mb-6">
+              Menyediakan makanan berkualitas tinggi untuk penerbangan dengan
+              standar keamanan dan kebersihan internasional sejak 1985.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-facebook-fill text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-instagram-line text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-twitter-x-line text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-linkedin-fill text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Tautan Cepat</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#visi-misi"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Visi & Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#sejarah"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Sejarah</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#layanan"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Layanan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#kontak"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Kontak</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Karir</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Layanan</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Katering Penerbangan Domestik</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Katering Penerbangan Internasional</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Makanan Khusus</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Pengemasan & Logistik</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Pengembangan Menu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Kontrol Kualitas</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-4">Berlangganan</h3>
+            <p class="text-gray-400 mb-4">
+              Dapatkan informasi terbaru tentang layanan dan inovasi kami.
+            </p>
+            <form class="mb-4">
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Alamat email Anda"
+                  class="px-4 py-2 w-full rounded-l border-none focus:outline-none focus:ring-2 focus:ring-primary text-gray-900"
+                />
+                <button
+                  type="submit"
+                  class="bg-primary text-white px-4 py-2 rounded-r hover:bg-red-600 transition-colors whitespace-nowrap"
+                >
+                  Langganan
+                </button>
+              </div>
+            </form>
+            <h3 class="text-xl font-semibold mb-4">Metode Pembayaran</h3>
+            <div class="flex space-x-3">
+              <i class="ri-visa-fill text-2xl text-gray-400"></i>
+              <i class="ri-mastercard-fill text-2xl text-gray-400"></i>
+              <i class="ri-paypal-fill text-2xl text-gray-400"></i>
+              <i class="ri-bank-card-fill text-2xl text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-500 mb-4 md:mb-0">
+              &copy; 2025 Aero Food. Hak Cipta Dilindungi.
+            </p>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="text-gray-500 hover:text-white transition-colors"
+                >Kebijakan Privasi</a
+              >
+              <a
+                href="#"
+                class="text-gray-500 hover:text-white transition-colors"
+                >Syarat & Ketentuan</a
+              >
+              <a
+                href="#"
+                class="text-gray-500 hover:text-white transition-colors"
+                >Peta Situs</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.getElementById("hero-section");
+        const bgUpload = document.getElementById("bg-upload");
+        const resetBg = document.getElementById("reset-bg");
+        const defaultBg = heroSection.style.backgroundImage;
+        bgUpload.addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              heroSection.style.backgroundImage = `url('${e.target.result}')`;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+        resetBg.addEventListener("click", function () {
+          heroSection.style.backgroundImage = defaultBg;
+          bgUpload.value = "";
+        });
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
